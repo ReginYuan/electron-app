@@ -21,6 +21,18 @@
       ],
       "@api/*": [
         "src/renderer/src/api/*"
+      ],
+      "@views/*": [
+        "src/renderer/src/views/*"
+      ],
+      "@router/*": [
+        "src/renderer/src/router/*"
+      ],
+      "@components/*": [
+        "src/renderer/src/components/*"
+      ],
+      "@assets/*": [
+        "src/renderer/src/assets/*"
       ]
     }
   }

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-// 用户
+// 用户信息
 import { useUserStore } from './useUserStore'
 export const useStore = defineStore('storeId', {
   state: () => {

@@ -1,10 +1,9 @@
-import axios  from  'axios'
+import axios from 'axios'
 import { ElMessage } from 'element-plus'
 // 1. 创建axios对象
 const http = axios.create({
-    baseURL: '/api',
-});
-
+  baseURL: '/api'
+})
 
 // 2.添加请求拦截器
 http.interceptors.request.use(
@@ -23,7 +22,7 @@ http.interceptors.request.use(
     // 对请求错误做些什么
     return Promise.reject(error)
   }
-);
+)
 
 // 2.添加响应拦截器
 http.interceptors.response.use(
@@ -46,6 +45,6 @@ http.interceptors.response.use(
     // 对响应错误做点什么
     return Promise.reject(error)
   }
-);
+)
 
-export default http;
+export default http

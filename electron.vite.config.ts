@@ -1,7 +1,9 @@
 import { resolve } from 'path'
 import { defineConfig, externalizeDepsPlugin, bytecodePlugin } from 'electron-vite'
 import vue from '@vitejs/plugin-vue'
-
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 export default defineConfig({
   main: {
     plugins: [externalizeDepsPlugin(), bytecodePlugin()]
@@ -15,7 +17,11 @@ export default defineConfig({
         '@renderer': resolve('src/renderer/src'),
         '@store': resolve('src/renderer/src/store'),
         '@utils': resolve('src/renderer/src/utils'),
-        '@api': resolve('src/renderer/src/api')
+        '@api': resolve('src/renderer/src/api'),
+        '@views': resolve('src/renderer/src/views'),
+        '@router': resolve('src/renderer/src/router'),
+        '@components': resolve('src/renderer/src/components'),
+        '@assets': resolve('src/renderer/src/assets')
       }
     },
     server: {
@@ -27,6 +33,14 @@ export default defineConfig({
         }
       }
     },
-    plugins: [vue()]
+    plugins: [
+      vue(),
+      AutoImport({
+        resolvers: [ElementPlusResolver()]
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()]
+      })
+    ]
   }
 })
